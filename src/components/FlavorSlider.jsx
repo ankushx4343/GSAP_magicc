@@ -23,7 +23,7 @@ function FlavorSlider() {
         end:`+=${scrollvalue+1000}px`,
         scrub:true,
         pin:true,
-        markers:true
+   
       }
     })
     sliderTl.to(".flavor-section",{
@@ -38,7 +38,7 @@ function FlavorSlider() {
             start:"top top",
             end:"bottom 80%",
             scrub:true,
-            markers:true,
+           
           },
     })
 

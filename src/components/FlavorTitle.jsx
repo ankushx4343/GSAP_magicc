@@ -39,7 +39,7 @@ function FlavorTitle() {
       duration:0.91,
       stagger:0.02,
       ease:"power4.Out",
-      markers:true,
+     
       scrollTrigger:{
         trigger:".second-text-split",
         start:"top 60%",

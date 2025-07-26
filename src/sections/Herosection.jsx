@@ -1,8 +1,19 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { SplitText } from "gsap/all"
+import { useMediaQuery } from "react-responsive"
 
 function Herosection() {
+
+    const isMobile=useMediaQuery({
+        query:"(max-width:768px)"
+    })
+
+    const isTablet=useMediaQuery({
+        query:"(max-width:1024px)",
+    })
+    
+
     useGSAP(()=>{
         const titleSplit=SplitText.create(".hero-title",{
             type:"chars",
@@ -43,11 +54,22 @@ function Herosection() {
     return (
         <section className="bg-main-bg">
             <div className="hero-container">
-                <img
-                    src="/images/static-img.png"
-                    alt="Hero"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto scale-100 md:scale-150"
-                />
+               
+                    {
+                    isTablet?(<>
+                              {isMobile && <img src="images\hero-bg.png" className="absolute"/>}
+                              <img src="images/hero-img.png" 
+                                   className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"></img>
+                              </>):(
+                        <video src="videos\hero-bg.mp4" 
+                               playsInline
+                               muted
+                               autoPlay
+                               className="absolute object-cover inset-0 w-full h-full">
+                        </video>        
+                    )
+                
+               }
                 <div className="hero-content opacity-0">
                     <div className="overflow-hidden">
                         <h1 className="hero-title">Freaking Delicious</h1>
@@ -66,7 +88,7 @@ function Herosection() {
                     
                     <div className="hero-button">
                         <p>chug a spylt</p>
-                    </div>
+                    </div> 
                 </div>
 
             </div>
